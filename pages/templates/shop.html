@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <section id="clothing" class="my-5 overflow-hidden">
+        <div class="container pb-5">
+
+            <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
+                <h2 class="display-3 fw-normal">Doll Store</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="card" style="text-align: center">
+                        <a href="single-product.html"><img src="{% static 'img/giraffe.jpg' %}" class="img-fluid rounded-4" alt="image"></a>
+                          <a href="single-product.html">
+                            <h3 class="card-title pt-4 m-0">Giraffe</h3>
+                          </a>
+          
+                          <div class="card-text">          
+                            <h3 class="secondary-font text-primary">Ugx 5000</h3>
+                            <div class="p-3">
+                                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                                    shop now
+                                    <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                                    <use xlink:href="#arrow-right"></use>
+                                </svg></a>
+                            </div>        
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card" style = "text-align: center"
+                        <a href="single-product.html"><img src="{% static 'img/panda.jpg' %}" class="img-fluid rounded-4" alt="image"></a>
+                          <a href="single-product.html">
+                            <h3 class="card-title pt-4 m-0">Panda</h3>
+                          </a>
+          
+                        <div class="card-text">          
+                            <h3 class="secondary-font text-primary">Ugx 5000</h3>
+                            <div class="p-3">
+                                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                                    shop now
+                                    <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                                    <use xlink:href="#arrow-right"></use>
+                                    </svg></a>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card" style = "text-align: center"
+                        <a href="single-product.html"><img src="{% static 'img/koala.jpg' %}" class="img-fluid rounded-4" alt="image"></a>
+                          <a href="single-product.html">
+                            <h3 class="card-title pt-4 m-0">Koala</h3>
+                          </a>
+          
+                          <div class="card-text">          
+                            <h3 class="secondary-font text-primary">Ugx 5000</h3>
+          
+                            <div class="p-3">
+                                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                                shop now
+                                <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                                <use xlink:href="#arrow-right"></use>
+                                </svg></a>
+                            </div>        
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card" style = "text-align: center"
+                        <a href="single-product.html"><img src="{% static 'img/sloth.jpg' %}" class="img-fluid rounded-4" alt="image"></a>
+                          <a href="single-product.html">
+                            <h3 class="card-title pt-4 m-0">Sloth</h3>
+                          </a>
+          
+                          <div class="card-text">          
+                            <h3 class="secondary-font text-primary">Ugx 5000</h3>
+          
+                            <div class="p-3">
+                                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                                shop now
+                                <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                                <use xlink:href="#arrow-right"></use>
+                                </svg></a>
+                            </div>        
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="bg-light rounded">
+                <div class="row g-0">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="h-100 d-flex flex-column justify-content-center p-5">
+                            <h1 class="mb-4">Login</h1>
+                            <form method='POST' action={% url "home" %}>
+                                {% csrf_token %}
+                                <div class="row g-3">
+                                    <div class="col-sm-12">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="uname" name="uname"placeholder="User Name">
+                                            <label for="uname">User Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control border-0" id="pword" name="pword" placeholder="Password">
+                                            <label for="pword">Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/appointment.jpg' %}" style="object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

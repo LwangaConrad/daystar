@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="bg-light rounded">
+                <div class="row g-0">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="h-100 d-flex flex-column justify-content-center p-5">
+                            <h1 class="mb-4">Register Baby</h1>
+                            <form method='POST' action={% url "home" %}>
+                                {% csrf_token %}
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="name" name="name"placeholder="Name">
+                                            <label for="name">Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="location" name="location"placeholder="Location">
+                                            <label for="location">Location</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="brought" name="brought" placeholder="Brought By">
+                                            <label for="brought">Brought By</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="">
+                                            <input type="radio" style="accent-color: #FE5D37" class="" id="male" name="gender"value="Male">
+                                            <label for="male">Male</label>
+                                            <input type="radio" style="accent-color: #FE5D37"class="" id="female" name="gender"value="Female">
+                                            <label for="female">Female</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="parent" name="parent" placeholder="Parent's Name">
+                                            <label for="parent">Parent's Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="fee" name="fee" placeholder="Fee">
+                                            <label for="fee">Fee</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="period" name="period" placeholder="Period of Stay">
+                                            <label for="period">Period of Stay</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="bin" name="bin" placeholder="Baby Number">
+                                            <label for="bin">Baby Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="age" name="age"placeholder="Age">
+                                            <label for="dob">Age</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="">
+                                            <label for="sitter">Choose a Sitter:</label>
+                                            <select name="sitter" id="sitter">
+                                            <option style="color: #FE5D37" value="Luois">Luois</option>
+                                            <option style="color: #FE5D37" value="Julius">Julius</option>
+                                            <option style="color: #FE5D37" value="Patricia">Patricia</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/about-3.jpg' %}" style="object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
