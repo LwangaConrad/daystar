@@ -8,7 +8,7 @@
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="h-100 d-flex flex-column justify-content-center p-5">
                             <h1 class="mb-4">Register Sitter</h1>
-                            <form method='POST' action={% url "home" %}>
+                            <form method='POST' action={% url "sitter" %}>
                                 {% csrf_token %}
                                 <div class="row g-3">
                                     <div class="col-sm-6">
@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="dob" name="dob"placeholder="Date of Birth">
+                                            <input type="date" class="form-control border-0" id="dob" name="dob"placeholder="Date of Birth">
                                             <label for="dob">Date of Birth</label>
                                         </div>
                                     </div>

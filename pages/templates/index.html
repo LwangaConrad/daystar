@@ -13,6 +13,7 @@
                                 <h1 class="display-2 text-white animated slideInDown mb-4">The Best Daycare For Your Child</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">Leave your child in the most capable hands with well trained sitters that care about their wellbeing</p>
                                 <a href={% url "babies" %} class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Register Baby</a>
+                                <a href={% url "baby" %} class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">See Babies</a>
                             </div>
                         </div>
                     </div>
@@ -27,6 +28,7 @@
                                 <h1 class="display-2 text-white animated slideInDown mb-4">Make A Brighter Future For Your Child</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">With lots of fun activities we ensure to create a home away from home for your kids</p>
                                 <a href={% url "babies" %} class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Register Baby</a>
+                                <a href={% url "baby" %} class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">See Babies</a>
                             </div>
                         </div>
                     </div>
@@ -68,23 +70,24 @@
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="h-100 d-flex flex-column justify-content-center p-5">
                             <h1 class="mb-4">Pick Up Child</h1>
-                            <form>
+                            <form method="POST" action={% url "baby" %}>
+                                {% csrf_token %}
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="cname" placeholder="Child Name">
+                                            <input type="text" class="form-control border-0" id="cname" placeholder="Child Name" name="cname">
                                             <label for="cname">Child Name</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="nop" placeholder="Name of person taking">
+                                            <input type="text" class="form-control border-0" id="nop" placeholder="Name of person taking" name="nop">
                                             <label for="nop">Name of person taking</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control border-0" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
+                                            <textarea class="form-control border-0" placeholder="Leave a comment here" name="comm"id="comment" style="height: 100px"></textarea>
                                             <label for="comment">Comment</label>
                                         </div>
                                     </div>
