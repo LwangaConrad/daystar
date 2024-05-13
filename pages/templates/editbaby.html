@@ -7,68 +7,97 @@
                 <div class="row g-0">
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="h-100 d-flex flex-column justify-content-center p-5">
-                            <h1 class="mb-4">Register Baby</h1>
-                            <form method='POST' action={% url "babies" %}>
+                            <h1 class="mb-4">Edit Baby</h1>
+                            <form method='POST' action={% url "edit" bae.id %}>
                                 {% csrf_token %}
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="name" name="name"placeholder="Name">
+                                            <input type="text" class="form-control border-0" id="name" name="name" value={{bae.name}}>
                                             <label for="name">Name</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="location" name="location"placeholder="Location">
+                                            <input type="text" class="form-control border-0" id="location" name="location"placeholder="Location" value={{bae.location}}>
                                             <label for="location">Location</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="brought" name="brought" placeholder="Brought By">
+                                            <input type="text" class="form-control border-0" id="brought" name="brought" placeholder="Brought By" value={{bae.brought_by}}>
                                             <label for="brought">Brought By</label>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="">
-                                            <input type="radio" style="accent-color: #FE5D37" class="" id="male" name="gender"value="Male">
-                                            <label for="male">Male</label>
-                                            <input type="radio" style="accent-color: #FE5D37"class="" id="female" name="gender"value="Female">
-                                            <label for="female">Female</label>
+                                    {% if bae.gender == "Male" %}
+                                        <div class="col-sm-6">
+                                            <div class="">
+                                                <input type="radio" style="accent-color: #FE5D37" class="" id="male" name="gender"value="Male" checked=checked>
+                                                <label for="male">Male</label>
+                                                <input type="radio" style="accent-color: #FE5D37"class="" id="female" name="gender"value="Female">
+                                                <label for="female">Female</label>
+                                            </div>
                                         </div>
-                                    </div>
+                                    {% else %}
+                                        <div class="col-sm-6">
+                                            <div class="">
+                                                <input type="radio" style="accent-color: #FE5D37" class="" id="male" name="gender"value="Male">
+                                                <label for="male">Male</label>
+                                                <input type="radio" style="accent-color: #FE5D37"class="" id="female" name="gender"value="Female" checked=checked>
+                                                <label for="female">Female</label>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="parent" name="parent" placeholder="Parent's Name">
+                                            <input type="text" class="form-control border-0" id="parent" name="parent" placeholder="Parent's Name" value={{bae.parent_name}}>
                                             <label for="parent">Parent's Name</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="fee" name="fee" placeholder="Fee">
+                                            <input type="text" class="form-control border-0" id="fee" name="fee" placeholder="Fee" value={{bae.fee}}>
                                             <label for="fee">Fee</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="period" name="period" placeholder="Period of Stay">
+                                            <input type="text" class="form-control border-0" id="period" name="period" placeholder="Period of Stay" value={{bae.period_of_stay}}>
                                             <label for="period">Period of Stay</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="bin" name="bin" placeholder="Baby Number">
+                                            <input type="text" class="form-control border-0" id="bin" name="bin" placeholder="Baby Number" value={{bae.baby_number}}>
                                             <label for="bin">Baby Number</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="age" name="age"placeholder="Age">
+                                            <input type="text" class="form-control border-0" id="age" name="age"placeholder="Age" value={{bae.age}}>
                                             <label for="dob">Age</label>
                                         </div>
                                     </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <div class="col-sm-3">
+                                                <label for="sitter">Sitter</label>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <select name="sitter" id="sitter"><br>
+                                                    {% for sitter in avail %}
+                                                        {% if sitter.name == bae.sitter %}
+                                                            <option value={{sitter.name}} selected>{{sitter.name}}</option>
+                                                        {% else %}
+                                                            <option value={{sitter.name}}>{{sitter.name}}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Edit</button>
                                     </div>
                                 </div>
                             </form>

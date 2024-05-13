@@ -46,7 +46,7 @@
                             <td>{{ sitter.sitter_number }}</td>
                             <td>{{ sitter.contact }}</td>
                             <td>{{ sitter.on_duty }}</td>
-                            <td><a href={% url "baby" sitter.id %} class="btn btn-dark rounded-pill">Edit</a></td>
+                            <td><a href={% url "update" sitter.id %} class="btn btn-dark rounded-pill">Edit</a></td>
                             <td> <a href={% url "erase" sitter.id %} class="btn btn-primary rounded-pill">Delete</a></td>
                           </tr>
                           {% endfor %}

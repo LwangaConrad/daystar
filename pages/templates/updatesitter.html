@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="bg-light rounded">
+                <div class="row g-0">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="h-100 d-flex flex-column justify-content-center p-5">
+                            <h1 class="mb-4">Update Sitter</h1>
+                            <form method='POST' action={% url "update" site.id %}>
+                                {% csrf_token %}
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="name" name="name"placeholder="Name" value={{site.name}}>
+                                            <label for="name">Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="tel" name="tel" placeholder="Telephone Number" value={{site.contact}}>
+                                            <label for="tel">Telephone Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="date" class="form-control border-0" id="dob" name="dob"placeholder="Date of Birth" value={{day}}>
+                                            <label for="dob">Date of Birth</label>
+                                        </div>
+                                    </div>
+                                    {% if site.gender == "Male" %}
+                                        <div class="col-sm-6">
+                                            <div class="">
+                                                <input type="radio" style="accent-color: #FE5D37" class="" id="male" name="gender"value="Male" checked=checked>
+                                                <label for="male">Male</label>
+                                                <input type="radio" style="accent-color: #FE5D37"class="" id="female" name="gender"value="Female">
+                                                <label for="female">Female</label>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="col-sm-6">
+                                            <div class="">
+                                                <input type="radio" style="accent-color: #FE5D37" class="" id="male" name="gender"value="Male">
+                                                <label for="male">Male</label>
+                                                <input type="radio" style="accent-color: #FE5D37"class="" id="female" name="gender"value="Female" checked=checked>
+                                                <label for="female">Female</label>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="nok" name="nok" placeholder="Next of Kin" value={{site.next_of_kin}}>
+                                            <label for="nok">Next of Kin</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="nin" name="nin" placeholder="National ID Number" value={{site.nin}}>
+                                            <label for="nin">National ID Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="recommender" name="recommender" placeholder="Recommender Name" value={{site.recomender_name}}>
+                                            <label for="recommender">Recommender Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="religion" name="religion" placeholder="Religion" value={{site.religion}}>
+                                            <label for="religion">Religion</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="loe" name="loe" placeholder="Level of Education" value={{site.level_of_education}}>
+                                            <label for="loe">Level of Education</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="sin" name="sin" placeholder="Sitter Number" value={{site.sitter_number}}>
+                                            <label for="sin">Sitter Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="location" name="location"placeholder="Location" value={{site.location}}>
+                                            <label for="location">Location</label>
+                                        </div>
+                                    </div>
+                                    {% if site.on_duty == True %}
+                                        <div class="col-sm-6">
+                                            <div class="">
+                                                <input type="radio" style="accent-color: #FE5D37" class="" id="on" name="on_duty"value=True checked=checked>
+                                                <label for="on">On Duty</label>
+                                                <input type="radio" style="accent-color: #FE5D37"class="" id="off" name="on_duty"value=False>
+                                                <label for="off">Off Duty</label>
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                    <div class="col-sm-6">
+                                        <div class="">
+                                            <input type="radio" style="accent-color: #FE5D37" class="" id="on" name="on_duty"value=True>
+                                            <label for="on">On Duty</label>
+                                            <input type="radio" style="accent-color: #FE5D37"class="" id="off" name="on_duty"value=False checked=checked>
+                                            <label for="off">Off Duty</label>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                        <div class="position-relative h-100">
+                            <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/call-to-action.jpg' %}" style="object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

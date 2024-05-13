@@ -36,3 +36,8 @@ class Pickup(models.Model):
     name_of_person = models.CharField(max_length=100)
     comment = models.TextField(max_length=500, null=True)
     time = models.DateTimeField(auto_now_add=True)
+
+class Doll(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.FloatField()
+    quantity = models.IntegerField()

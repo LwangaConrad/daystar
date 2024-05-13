@@ -90,13 +90,44 @@ def delete(request, baby_id):
     return HttpResponseRedirect(reverse('baby'))
 
 def edit(request, baby_id):
-    Babie.objects.filter(id=baby_id).delete()
-    return HttpResponseRedirect(reverse('baby'))
-
+    bae = Babie.objects.get(id=baby_id)
+    avail = Sitter.objects.filter(on_duty=True)
+    if request.method == 'POST':
+        bae.name = request.POST['name']
+        bae.location = request.POST['location']
+        bae.brought_by = request.POST['brought']
+        bae.gender = request.POST['gender']
+        bae.parent_name = request.POST['parent']
+        bae.fee = request.POST['fee']
+        bae.period_of_stay = request.POST['period']
+        bae.baby_number = request.POST['bin']
+        bae.age = request.POST['age']
+        bae.sitter = request.POST['sitter']
+        bae.save()
+        return HttpResponseRedirect(reverse('baby'))
+    return render(request,'editbaby.html', {"bae": bae, "avail":avail})
+    
 def erase(request, sitter_id):
     Sitter.objects.filter(id=sitter_id).delete()
     return HttpResponseRedirect(reverse('sitters'))
 
 def update(request, sitter_id):
-    Sitter.objects.filter(id=sitter_id).delete()
-    return HttpResponseRedirect(reverse('sitters'))
+    site = Sitter.objects.get(id=sitter_id)
+    stri = site.date_of_Birth.strftime('%Y-%m-%d')
+    print(stri)
+    if request.method == 'POST':
+        site.name = request.POST['name']
+        site.location = request.POST['location']
+        site.date_of_Birth = request.POST['dob']
+        site.gender = request.POST['gender']
+        site.next_of_kin = request.POST['nok']
+        site.nin = request.POST['nin']
+        site.recomender_name = request.POST['recommender']
+        site.religion = request.POST['religion']
+        site.level_of_education = request.POST['loe']
+        site.sitter_number = request.POST['sin']
+        site.contact = request.POST['tel']
+        site.on_duty = request.POST['on_duty']
+        site.save()
+        return HttpResponseRedirect(reverse('sitters'))
+    return render(request,'updatesitter.html', {"site": site, "day": stri})
